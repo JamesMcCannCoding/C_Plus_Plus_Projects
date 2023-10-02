@@ -1,2 +1,2 @@
-# C_Plus_Pluss_Projects
+# C_Plus_Plus_Projects
 A demonstation of my C++ work.
