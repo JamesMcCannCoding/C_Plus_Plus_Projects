@@ -22,15 +22,15 @@ void selectionSort(int arr[], int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
-        int min_index = i;
-        for (int j = i + 1; j < size; j++)
+        int min_index = i;                 // This min_index variable is the smallest value in the un-sorted portion of the array.
+        for (int j = i + 1; j < size; j++) // j = i + 1 Checks the rest of the elements in the un-sorted portion of the array.
         {
-            if (arr[j] < arr[min_index])
+            if (arr[j] < arr[min_index]) // If this loop finds an element that is less than the element stored in min_index, it will update min_index and set it to the index of that element.
             {
                 min_index = j;
             }
         }
-        if (min_index != i)
+        if (min_index != i) // Checks if min_index is valid and needs to swap.
         {
             swap(arr[i], arr[min_index]);
         }
@@ -62,9 +62,6 @@ int main()
 
     // Sort the array
     selectionSort(arr, ARRAY_SIZE);
-
-    cout << "Sorted array: ";
-    printArray(arr, ARRAY_SIZE);
 
     // Record the end time
     auto end = chrono::high_resolution_clock::now();
