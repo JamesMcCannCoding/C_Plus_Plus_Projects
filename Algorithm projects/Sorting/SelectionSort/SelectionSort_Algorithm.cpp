@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <chrono>
 
 using namespace std;
 
@@ -56,11 +57,25 @@ int main()
     cout << "Original array: ";
     printArray(arr, ARRAY_SIZE);
 
+    // Record the start time
+    auto start = chrono::high_resolution_clock::now();
+
     // Sort the array
     selectionSort(arr, ARRAY_SIZE);
 
     cout << "Sorted array: ";
     printArray(arr, ARRAY_SIZE);
+
+    // Record the end time
+    auto end = chrono::high_resolution_clock::now();
+
+    chrono::duration<double> elapsed = end - start;
+    int elapsedMillis = static_cast<int>(elapsed.count() * 1000);
+
+    cout << "Sorted array: ";
+    printArray(arr, ARRAY_SIZE);
+
+    cout << "Time taken to sort: " << elapsed.count() << " seconds (" << elapsedMillis << " milliseconds)." << endl;
 
     return 0;
 }
