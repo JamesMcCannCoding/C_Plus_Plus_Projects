@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 void bubbleSort(int arr[], int n)
@@ -38,10 +39,22 @@ int main()
     cout << "Before sorting: " << endl;
     printArray(arr, n);
 
+    // Timing starts
+    auto start = chrono::high_resolution_clock::now();
+
     bubbleSort(arr, n);
+
+    // Timing ends
+    auto end = chrono::high_resolution_clock::now();
 
     cout << "After sorting: " << endl;
     printArray(arr, n);
+
+    chrono::duration<double> elapsed_seconds = end - start;
+    auto elapsed_milliseconds = chrono::duration_cast<chrono::milliseconds>(elapsed_seconds);
+
+    cout << "Time taken to sort: " << elapsed_seconds.count() << " seconds" << endl;
+    cout << "Time taken to sort: " << elapsed_milliseconds.count() << " milliseconds" << endl;
 
     return 0;
 }
